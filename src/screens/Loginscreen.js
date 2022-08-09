@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from 'axios';
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import { Form } from "react-bootstrap";
 
 function Loginscreen() {
   const [email, setemail] = useState("");
@@ -32,33 +33,37 @@ function Loginscreen() {
     <div>
       {loading && (<Loader />)}
       <div className="row justify-content-center mt-5 text-center">
-        <div className="col-md-3 mt-5">
+        <div className="col-md-3 ">
           {error && (<Error message='Invalid Credentials' />)}
           <div className="bss">
             <h2>Login</h2>
-            <input
-              type="text"
-              className="form-control"
+            <Form.Control
+              type="email"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Email"
               value={email}
+              required
               onChange={(e) => {
                 setemail(e.target.value);
               }}
             /><br />
-            <input
-              type="text"
-              className="form-control"
+            <Form.Control
+              type="password"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Password"
               value={password}
+              required
               onChange={(e) => {
                 setpassword(e.target.value);
               }}
-            />
+            /><br />
           
             <button className="btn btn-primary mt-3" onClick={login}>
               Login
             </button><br /><br />
-            <p> <strong>Login as Admin</strong><br /> Username : test@gmail.com, Password : 123456</p>
+            <p> <strong>Login as Admin</strong><br /> Username : test@gmail.com,<br /> Password : 123456</p>
             <p> <strong>Login as User</strong><br />Username : test1@gmail.com,<br /> Password : 123456</p>
           </div>
         </div>

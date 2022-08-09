@@ -4,6 +4,7 @@ import Loader from "../components/Loader";
 import Error from "../components/Error";
 import Success from "../components/Success";
 import { Link } from "react-router-dom";
+import { Form } from "react-bootstrap";
 
 function Registerscreen() {
   const [name, setname] = useState("");
@@ -44,9 +45,10 @@ function Registerscreen() {
           {success && (<Success message='Registration success' />)}
           <div className="bss">
             <h2>Register</h2>
-            <input
+            <Form.Control
               type="text"
-              className="form-control"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Name"
               value={name}
               required
@@ -54,9 +56,10 @@ function Registerscreen() {
                 setname(e.target.value);
               }}
             /><br />
-            <input
-              type="text"
-              className="form-control"
+            <Form.Control
+              type="email"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Email"
               value={email}
               required
@@ -64,9 +67,10 @@ function Registerscreen() {
                 setemail(e.target.value);
               }}
             /><br />
-            <input
-              type="text"
-              className="form-control"
+            <Form.Control
+              type="password"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Password"
               value={password}
               required
@@ -74,9 +78,10 @@ function Registerscreen() {
                 setpassword(e.target.value);
               }}
             /><br />
-            <input
-              type="text"
-              className="form-control"
+            <Form.Control
+              type="password"
+              id="inputPassword5"
+              aria-describedby="passwordHelpBlock"
               placeholder="Confirm password"
               value={cpassword}
               required
@@ -84,6 +89,7 @@ function Registerscreen() {
                 setcpassword(e.target.value);
               }}
             /><br />
+
             <button className="register" onClick={register}>
               Register
             </button>&nbsp;&nbsp;
